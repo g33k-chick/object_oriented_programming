@@ -51,10 +51,13 @@ class Mars_Rover
 end
 
 puts "What is the plateau size?"
-plateau_input = gets.chomp
-plateau_size = plateau_input.split
-puts plateau_size
+plateau_size = gets.chomp.split
 
+puts "Input the rover's coordinates"
+rover1 = gets.chomp.split
+
+puts "Input instructions for the rover"
+init_instruction = gets.chomp.split(//)
 
 my_rover = Mars_Rover.new(2, 2, "N")
 puts my_rover
