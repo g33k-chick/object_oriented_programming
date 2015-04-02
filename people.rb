@@ -16,7 +16,7 @@ class Student < Person
 end
 
 class Instructor < Person
-	def learn
+	def teach
 		puts "Everything in Ruby is an Object"
 	end
 end
@@ -26,3 +26,9 @@ chris.greeting
 
 cristina = Student.new("Cristina")
 cristina.greeting
+
+chris.teach
+cristina.learn
+cristina.teach # this call doesn't work since the teach method is in the Instructor class but the Student instance was called.
+# The Student class is not inherited to the Instructor class.
+
