@@ -46,7 +46,7 @@ class Mars_Rover
 	end
 
 	def to_s
-		"I am at #{@x}, #{@y}, facing: #{@direction}"
+		puts "I am at #{@x}, #{@y}, facing: #{@direction}"
 	end
 end
 
@@ -54,18 +54,11 @@ puts "What is the plateau size?"
 plateau_size = gets.chomp.split
 
 puts "Input the rover's coordinates"
-rover1 = gets.chomp.split
+init_rover1 = gets.chomp.split
 
-puts "Input instructions for the rover"
-init_instruction = gets.chomp.split(//)
+#puts "Input instructions for the rover"
+#init_instruction = gets.chomp.split(//)
 
-my_rover = Mars_Rover.new(2, 2, "N")
-puts my_rover
-my_rover.turn_left
-puts my_rover
-my_rover.turn_left
-puts my_rover
-my_rover.turn_left
-puts my_rover
-my_rover.turn_right
-puts my_rover
+rover1 = Mars_Rover.new(init_rover1[0].to_i,init_rover1[1].to_i,init_rover1[2])
+#puts init_rover1
+rover1.to_s
