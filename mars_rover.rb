@@ -1,3 +1,17 @@
+class Plateau
+	def initialize(max_x, max_y)
+		@max_x = max_x
+		@max_y = max_y
+		@min_x = 0
+		@min_y = 0
+	end
+
+	def ask_plateau
+		puts "What is the plateau size?"
+		plateau_size = gets.chomp.split
+	end
+end
+
 class Mars_Rover
 	def initialize(init_x, init_y, init_direction)
 		@x = init_x
@@ -5,8 +19,22 @@ class Mars_Rover
 		@direction = init_direction
 	end
 
-	def read_instructions(user_input)
-		user_input.split
+	def ask_for_instructions
+	end
+
+	def read_instructions(instructions)
+		instructions1.each do |x|
+		if x == "M"
+			move_forward
+		elsif x == "R"
+			turn_right
+		elsif x == "L"
+			turn_left
+		else
+		end
+	end
+		puts "Input the rover's coordinates"
+		rover1 = gets.chomp.split
 	end
 
 	def move_forward(str)
@@ -50,15 +78,18 @@ class Mars_Rover
 	end
 end
 
-puts "What is the plateau size?"
-plateau_size = gets.chomp.split
+plateau.ask_plateau
 
 puts "Input the rover's coordinates"
 init_rover1 = gets.chomp.split
 
-#puts "Input instructions for the rover"
-#init_instruction = gets.chomp.split(//)
+puts "Input instructions for the rover"
+instructions1 = gets.chomp.upcase
+instructions1.split(//)
 
-rover1 = Mars_Rover.new(init_rover1[0].to_i,init_rover1[1].to_i,init_rover1[2])
-#puts init_rover1
+rover1 = Mars_Rover.new(init_rover1[0].to_i,init_rover1[1].to_i,init_rover1[2].upcase)
+rover1.to_s
+
+rover1.read_instructions(instructions1)
+
 rover1.to_s
