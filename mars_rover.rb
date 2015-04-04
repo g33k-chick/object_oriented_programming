@@ -18,7 +18,10 @@ class Mars_Rover
 		@direction = init_direction
 	end
 
-	def read_instructions(instructions_arry)
+	def read_instructions
+		puts "Input instructions for the rover"
+		instructions = gets.chomp.upcase
+		instructions_arry = instructions.split(//)
 		instructions_arry.each do |inst|
 			if inst == "M"
 				move_forward
@@ -71,21 +74,22 @@ class Mars_Rover
 	end
 end
 
-puts "What is the plateau size?"
+puts "Please input the plateau size:"
 input_plateau = gets.chomp.split
-
 plateau = Plateau.new(input_plateau)
 plateau.to_s
 
-puts "Input the rover's coordinates"
+puts "Please input the first rover's coordinates:"
 init_rover1 = gets.chomp.split
 rover1 = Mars_Rover.new(init_rover1[0].to_i,init_rover1[1].to_i,init_rover1[2].upcase)
 rover1.to_s
 
-puts "Input instructions for the rover"
-instructions = gets.chomp.upcase
-instructions1 = instructions.split(//)
-
-puts instructions1
-rover1.read_instructions(instructions1)
+rover1.read_instructions
 rover1.to_s
+
+puts "Please input the second rover's coordinates:"
+init_rover2 = gets.chomp.split
+rover2 = Mars_Rover.new(init_rover2[0].to_i,init_rover2[1].to_i,init_rover2[2].upcase)
+rover2.to_s
+rover2.read_instructions
+rover2.to_s
