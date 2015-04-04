@@ -7,7 +7,7 @@ class Plateau
 	end
 
 	def to_s
-		puts "The plateau starts at (0,0) with #{@max_x} by #{@max_y}"
+		puts "The plateau is #{@max_x} by #{@max_y}."
 	end
 end
 
@@ -70,7 +70,7 @@ class Mars_Rover
 	end
 
 	def to_s
-		puts "I am at #{@x}, #{@y}, facing: #{@direction}"
+		puts "The rover is at (#{@x}, #{@y}), facing: #{@direction}"
 	end
 end
 
@@ -82,7 +82,6 @@ plateau.to_s
 puts "Please input the first rover's coordinates:"
 init_rover1 = gets.chomp.split
 rover1 = Mars_Rover.new(init_rover1[0].to_i,init_rover1[1].to_i,init_rover1[2].upcase)
-rover1.to_s
 
 rover1.read_instructions
 rover1.to_s
@@ -90,6 +89,6 @@ rover1.to_s
 puts "Please input the second rover's coordinates:"
 init_rover2 = gets.chomp.split
 rover2 = Mars_Rover.new(init_rover2[0].to_i,init_rover2[1].to_i,init_rover2[2].upcase)
-rover2.to_s
+
 rover2.read_instructions
 rover2.to_s
