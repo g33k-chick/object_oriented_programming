@@ -1,13 +1,13 @@
 class Plateau
-	def initialize(plateau_size)
-		@max_x = plateau_size[0]
-		@max_y = plateau_size[1]
-		@min_x = 0
-		@min_y = 0
+	def initialize(init_plat_x, init_plat_y)
+		$max_x = init_plat_x
+		$max_y = init_plat_y
+		$min_x = 0
+		$min_y = 0
 	end
 
 	def to_s
-		puts "The plateau is #{@max_x} by #{@max_y}."
+		puts "The plateau is #{$max_x} by #{$max_y}."
 	end
 end
 
@@ -34,14 +34,14 @@ class Mars_Rover
 	end
 
 	def move_forward
-		if @direction == "N"
-			@y = @y +1
-		elsif @direction == "E"
+		if (@direction == "N") && (@y < $max_y)
+			@y = @y + 1
+		elsif (@direction == "E") && (@x < $max_x)
 			@x = @x + 1
-		elsif @direction == "S"
+		elsif (@direction == "S") && (@y > $min_y.to_i)
 			@y = @y - 1
-		else
-			@x = @x -1
+		elsif (@direction == "W") && (@x > $min_x.to_i)
+			@x = @x - 1
 		end
 	end
 
@@ -76,7 +76,7 @@ end
 
 puts "Please input the plateau size:"
 input_plateau = gets.chomp.split
-plateau = Plateau.new(input_plateau)
+plateau = Plateau.new(input_plateau[0].to_i,input_plateau[1].to_i)
 plateau.to_s
 
 puts "Please input the first rover's coordinates:"
