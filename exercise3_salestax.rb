@@ -22,14 +22,30 @@ class Receipt
 		@item_total = @
 	end
 
+	def shopping
+		puts "Please enter in item to be purchased:"
+		input = get.chomp.upcase
+		input_array = input.split
+	end
+
+	def add_item
+		@quantity = input_array[0].to_i
+		if input_array.include?("book") || input_array.include?("chocolate") || input_array.include?("pills")
+			tax = false
+		else
+			tax = true
+		end
+
+	end
+
 	def print_receipt
 		"#{@quantity} #{@item} : #{@item_total}"
 
 	end
 end
 
-puts "Please enter in items to be purchased:"
-input = get.chomp.upcase
-input_array = input.split
-
 imported = input_array.include?("imported")
+
+
+shopping_receipt = Receipt.new
+shopping_receipt.shopping
